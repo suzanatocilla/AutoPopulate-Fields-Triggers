@@ -1,0 +1,12 @@
+trigger CreateTaskForNewOpp on Opportunity (after insert) {
+    for( Opportunity opp : Trigger.new){
+        Task t= new Task();
+        t.Subject='Apple Watch Promo';
+        t.Priority='High';
+        t.Description='bla bla bla just do it';
+        t.WhatId=opp.Id;
+        insert t;
+        
+        
+    }
+}
